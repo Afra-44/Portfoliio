@@ -417,7 +417,7 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   border: 1px solid var(--panel-border-hover);
 }
 .service-name {
-  font-size: clamp(0.5rem,2vw,1rem); font-weight: 700; letter-spacing: 0.05em;
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.05em;
   color: var(--ivory); text-transform: uppercase;
 }
 .service-text{
@@ -467,8 +467,11 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
 /* ══════════════════════════════════
    FOOTER
    ══════════════════════════════════ */
-.footer { padding: 10px 80px; text-align: center; }
+.footer { padding: 10px 20px; 
+  text-align: center; }
 .footer-bar {
+  display: flex;
+  justify-content: space-around;
    align-items: center;
   padding-top: 40px; border-top: 1px solid rgba(156,163,175,0.06);
 }
@@ -476,6 +479,11 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   letter-spacing: 0.2em; text-transform: uppercase; 
   color: var(--slate-light); opacity: 0.5; }
 
+.footer .links a{
+text-decoration: none;
+color: var(--slate-light);
+font-size: 13px; font-weight: 600;
+}
 
 /* ══════════════════════════════════
    RESPONSIVE
