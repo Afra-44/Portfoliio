@@ -105,21 +105,22 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 window.addEventListener('resize', () => { if (innerWidth > 1024) closeMenu(); });
 
 
+pic = document.querySelectorAll(".design-pic")
 
-// ----contact---//
-
-// Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Show success message
-            alert(`Thank you ${data.name}! Your message has been transmitted successfully. We'll respond within 24 hours.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
+pic.forEach( (pic) => {
+  pic.addEventListener( 'click', () => {
+    console.log("clicked")
+    zoom = document.querySelector(".zoom")
+    zoom.style.display = "flex"
+    document.body.style.overflow = "hidden";
+    const imgSrc = pic.querySelector("img").src;
+    zoom.innerHTML= ` <img src="${imgSrc}" alt=""> <button class="close-btn">X</button> `;
+    
+    document.querySelector(".close-btn").addEventListener("click", () => {
+      console.log("cancel")
+      zoom.style.display = "none";
+      zoom.innerHTML = "";
+      document.body.style.overflow = "";
+    })
+  })
+})

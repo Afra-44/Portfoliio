@@ -37,7 +37,7 @@ body {
 
 /* ── Nav ── */
 .top-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 600;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 6;
   display: flex; justify-content: center; align-items: center;
   padding: 24px 40px;
   transition: background 0.8s var(--silk-ease), padding 0.8s var(--silk-ease);
@@ -83,7 +83,7 @@ body {
 
 /* ── Mobile Menu ── */
 .mobile-menu {
-  position: fixed; inset: 0; z-index: 550;
+  position: fixed; inset: 0; z-index: 5;
   pointer-events: none; opacity: 0; visibility: hidden;
   transition: opacity 0.6s var(--silk-ease), visibility 0.6s var(--silk-ease);
 }
@@ -139,7 +139,7 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
 /* ── Side Panels ── */
 .side-panel {
   position: fixed; top: 50%; transform: translateY(-50%);
-  width: 56px; z-index: 100;
+  width: 56px; z-index: 3;
   display: flex; flex-direction: column; align-items: center;
   gap: 14px; padding: 24px 0;
 }
@@ -170,7 +170,7 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
 }
 
 /* ── Container ── */
-.main { position: relative; z-index: 10; max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+.main { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 0 40px; }
 
 .section { padding: 80px 0; position: relative; }
 .section-title {
@@ -361,6 +361,38 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
  font-weight: 500;
   /* margin: 17px 0; */
 }
+.zoom{
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+  background-color: #3531528f;
+}
+.zoom button{
+  position: fixed;
+  top: 1em;
+  right: 30px;
+  font-size: 40px;
+  padding: 10px;
+  background: none;
+  border: var(--panel-border);
+  cursor: pointer;
+  color: #000;
+}
+.zoom button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+.zoom img{
+  margin: 20px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: var(--base-soft);
+  border-radius: 20px;
+}
 
 /* about*/
 #about{
@@ -375,7 +407,7 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px;
 }
 .service-item {
-  background: var(--panel-bg); border: 1px solid var(--panel-border);
+   border: 1px solid var(--panel-border);
   border-radius: 20px; padding: 24px 16px; text-align: left;
   backdrop-filter: blur(16px);
   transition: transform 0.8s var(--silk-ease), border-color 0.8s var(--silk-ease);
@@ -385,7 +417,7 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   border: 1px solid var(--panel-border-hover);
 }
 .service-name {
-  font-size: 1rem; font-weight: 700; letter-spacing: 0.05em;
+  font-size: clamp(0.5rem,2vw,1rem); font-weight: 700; letter-spacing: 0.05em;
   color: var(--ivory); text-transform: uppercase;
 }
 .service-text{
@@ -467,6 +499,16 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   .hero { min-height: 100svh; padding: 100px 0 60px; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
   .section { padding: 80px 0; }
+  .design-grid ,.services-grid{
+  display: block; gap: 16px; margin-top: 56px;
+  }
+  .design-item ,.service-item{
+    margin-top: 1.5em;
+    transition: transform 0.8s var(--silk-ease), border-color 0.8s var(--silk-ease);
+  }
+  .design-desc{
+    line-height: 2;
+  }
   .project-visual { height: 240px; border-radius: 24px; }
   .footer-bar { flex-direction: column; gap: 20px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
@@ -474,10 +516,17 @@ body.menu-open .top-nav { background: rgba(21, 24, 31, 0.95); backdrop-filter: b
   .mobile-menu-inner { padding: 90px 20px 40px; }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .hero h1 { font-size: 2.4rem; }
   .section-title { font-size: 1.7rem; }
   .mobile-menu-link { font-size: 1.4rem; }
+  
+  .section-text{
+    font-size: 16px;
+  }
+  .section-text strong{
+    font-size: 20px;
+  }
 }
 
 @media (max-height: 540px) and (orientation: landscape) {
